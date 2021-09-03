@@ -40,7 +40,7 @@ export default StyleSheet.create({
         justifyContent: 'space-evenly',
         backgroundColor: 'white',
         flexWrap: 'wrap',
-        margin: 10,
+
       },
 
       /* Partner logo image */
@@ -69,11 +69,11 @@ export default StyleSheet.create({
 
       /* Item grid */
       itemContent: {
-        padding: 60,
+        padding: 80,
         borderStyle: 'solid',
         borderColor: 'black',
         borderWidth: 1,
-        margin: 5,
+        marginBottom: 10,
       },
 
       /* Search bar style */

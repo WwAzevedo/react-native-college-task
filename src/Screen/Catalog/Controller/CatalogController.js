@@ -1,6 +1,6 @@
 import React from 'react';
-import HomeView from '../View/HomeView';
-import HomeModel from '../Model/HomeModel';
+import HomeView from '../View/CatalogView';
+import HomeModel from '../Model/CatalogModel';
 
 class HomeController extends React.Component{
     
@@ -23,11 +23,16 @@ class HomeController extends React.Component{
       })
     }
 
+    goToProductInfo = () => {
+      this.props.navigation.navigate['ProductInfo']
+    }
+
     render = () => {
       return <HomeView 
       count={this.count}
       search={this.state.search}
       onSearchUpdate={this.onSearchUpdate}
+      goToProductInfo={this.goToProductInfo}
       />;
     }
 }
