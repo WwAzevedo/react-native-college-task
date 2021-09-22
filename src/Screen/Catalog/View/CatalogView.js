@@ -1,30 +1,40 @@
 import React from 'react'
-import {View, Text, Image, ImageBackground} from 'react-native'
+import {View, Text, Image} from 'react-native'
 import SearchBar from 'react-native-elements/dist/searchbar/SearchBar-ios'
 import styles from './CatalogStyle'
-import {Searchbar} from 'react-native-elements';
-import { ScrollView } from 'react-native-gesture-handler';
-import { KeyboardAvoidingView } from 'react-native';
-
+import { FlatList, ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const HomeView = (props) => {
+    const RenderItem = ({item}) => {
+        return (
+            <TouchableOpacity onPress={()=> alert("Página do produto: "+ item.name)}>
+                <View style={styles.itemContent}>
+                  <Image
+                      style={styles.imageSize}
+                      source={{uri: item.Image}}
+                    />    
+                  <View style={styles.textsView}>
+                    <Text style={styles.itemName}>{item.name}</Text>
+                    <Text style={styles.detail}>{item.address}</Text>
+                  </View>        
+                <View style={styles.separator}></View>
+              </View>
+            </TouchableOpacity>
+          );
+        };
+           
         return(
             
             <View style={styles.catalogContainer}>
-                
-                
                 <View style={styles.menuBox}>
-                    <Text style={styles.textLogo}>CHOICEASY</Text>
-                    <KeyboardAvoidingView  enabled behavior={''} keyboardVerticalOffset={100}>
                         <SearchBar
                         placeholder="Buscar"
                         onChangeText={props.updateSearch}
                         value={props.search}
                         lightTheme={true}
-                        inputStyle={styles.inputSearchBarStyle}
                         inputContainerStyle={styles.inputSearchBarStyle}
                         />
-                    </KeyboardAvoidingView>
                 </View>
                 
 
@@ -42,18 +52,28 @@ const HomeView = (props) => {
                     <Text style={styles.description}>Padaria onde todos os sabores se encontram em uma delicatessen completa com adega, cafeteria, Restaurante, pizzaria e conveniência. 🥖</Text>
                 </View>
                 
-                
                     <View style={styles.catalogBox}>
-                        <View  style={styles.itemContent}></View>
-                        <View  style={styles.itemContent}></View>
-                        <View  style={styles.itemContent}></View>
-                        <View  style={styles.itemContent}></View>
+                    
+                        <SafeAreaView>
+                            <FlatList              
+                                    data={props.filteredArrayPlaces}            
+                                    renderItem={({ item }) => <RenderItem item={item}/>}
+                                    keyExtractor={item => item.id.toString()}
+                                    numColumns={2}
+                                    columnWrapperStyle={styles.catalogBox}
+                                    />
+                        </SafeAreaView>
+                        
                     </View>
                 
+
                 
             </View>
+            
             
         );
 }
 
 export default HomeView;
+
+// <KeyboardAvoidingView  enabled behavior={''} keyboardVerticalOffset={100}></KeyboardAvoidingView>

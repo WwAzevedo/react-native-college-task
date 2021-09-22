@@ -20,27 +20,45 @@ export default StyleSheet.create({
         flex: 1,
       },
       menuBox: {
-        flex: 2,
         backgroundColor: '#FAD8A8',
-        paddingTop: 30,
       },
       imageBox: {
-        flex: 4,
-        backgroundColor: 'red',
+        flex: 3,
       },
       infoBox: {
-        flex: 3,
+        flex: 2,
         padding: 10,
         flexDirection: 'row',
         flexWrap: 'wrap',
+        backgroundColor: 'white'
       },
       catalogBox: {
-        flex: 6,
+        flex: 5,
         flexDirection: 'row',
-        justifyContent: 'space-evenly',
+        justifyContent: 'space-around',
         backgroundColor: 'white',
-        flexWrap: 'wrap',
+      },
 
+      // Item containt size
+      itemContent: {
+        width: 150,
+        height: 195,
+        margin: 10,
+        
+      },
+
+      // Catalog Item image size
+      imageSize: {
+        width: 150,
+        height: 150,
+        borderRadius: 5,
+
+      },
+
+      // Catalog item name
+      itemName: {
+        fontSize: 18,
+        fontWeight: 'bold',
       },
 
       /* Partner logo image */
@@ -52,7 +70,7 @@ export default StyleSheet.create({
 
       /* Partner company name */
       partnerName: {
-        fontSize: 18,
+        fontSize: 16,
         fontWeight: 'bold',
       },
 
@@ -65,15 +83,6 @@ export default StyleSheet.create({
       description: {
         fontSize: 14,
         margin: 10,
-      },
-
-      /* Item grid */
-      itemContent: {
-        padding: 80,
-        borderStyle: 'solid',
-        borderColor: 'black',
-        borderWidth: 1,
-        marginBottom: 10,
       },
 
       /* Search bar style */
@@ -90,6 +99,19 @@ export default StyleSheet.create({
         justifyContent: "center",
       },
       inputSearchBarStyle: {
-        backgroundColor: 'white'
-      }
+        backgroundColor: 'white',
+        borderRadius: 20,
+        height: 30,
+      },
+
+      // Exemple
+
+
+      safeAreaView:{
+        flexGrow: 1,
+        marginLeft: 10,
+        marginRight: 10,
+        marginTop: 5,
+      },
+
 })
